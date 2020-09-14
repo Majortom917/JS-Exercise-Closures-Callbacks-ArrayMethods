@@ -28,10 +28,14 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * counter1's count can only be accessed with the function. count2 is global
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * counter2.. it has a nested function
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * while invoking the function for specific items. to alter items generally.
 */
 
 // counter1 code
@@ -56,12 +60,12 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(min, max){
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min);
 }
-
+console.log(inning(3, 0))
 /* Task 3: finalScore()
 
 Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
