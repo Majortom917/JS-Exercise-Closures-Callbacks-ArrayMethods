@@ -124,5 +124,5 @@ function scoreboard(finalCb, cb1, rounds) {
   }
   return container
 }
-console.log("Scoreboard:", scoreboard(finalScore, inning, 9))
+//console.log("Scoreboard:", scoreboard(finalScore, inning, 9))
 
