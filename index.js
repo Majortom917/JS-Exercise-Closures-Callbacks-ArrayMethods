@@ -119,9 +119,18 @@ Final Score: awayTeam - homeTeam */
 
 function scoreboard(finalCb, cb1, rounds) {
   const container = []
+  let home = 0
+  let away = 0
+  let fHome = 0
+  let fAway = 0
   for ( let i = 0; i < rounds; i++){
-    container.push(`${i+1}: Home: ${cb1()}, Away: ${cb1()}`)
+    home = cb()
+    away = cb()
+    container.push(`${i+1}: Home: ${home}, Away: ${away}`)
+    fHome += home
+    fAway += away
   }
+  container.push({"Final Home": fHome, "Final Away": fAway})
   return container
 }
 //console.log("Scoreboard:", scoreboard(finalScore, inning, 9))
