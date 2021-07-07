@@ -43,7 +43,8 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 
 Edit the `ReadMe` file with your answers.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences).---> closure takes effect when a function reaches outside of itsself to access its parents properties.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -60,14 +61,17 @@ const dansRoll = personalDice("Dan");
 const zoesRoll = personalDice("Zoe");
 
 
-dansRoll();
-dansRoll();
+console.log(dansRoll())
+console.log(dansRoll())
 ```
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+a. Where is closure used in this code? How can you tell?-----> console is reaching for the name definition from its parent.
 
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+ ---->dansRoll is undefined the second time through. we could move the second call for dansRoll inside of the function.
+
+c. What is the lexical scope of `newRoll`? -----the personalDice local
 ### Task 3 - Stretch Goals
 
 After you have completed the requirements, **create** a new file called `stretch.js` and practice more with closures. There are no tests for these problems.

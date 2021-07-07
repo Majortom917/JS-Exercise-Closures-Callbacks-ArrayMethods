@@ -28,10 +28,14 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * counter1's count can only be accessed with the function. count2 is global
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * counter2.. it has a nested function
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * while invoking the function for specific items. to alter items generally.
 */
 
 // counter1 code
@@ -56,11 +60,11 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+ 
+  return Math.floor(Math.random() * 3);
 }
+//console.log(inning())
 
 /* Task 3: finalScore()
 
@@ -76,11 +80,20 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
 
-  /*Code Here*/
+function finalScore(cb1, rounds){
+//console.log(cb1())
+let Home = 0;
+let Away = 0 
+for ( let i = 0 ; i< rounds; i++){
+  Home += cb1()
+  Away += cb1()
+}
+return {Home: Home, Away: Away}
 
 }
+
+//console.log(finalScore(inning, 9))
 
 /* Task 4: 
 
@@ -104,8 +117,21 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(finalCb, cb1, rounds) {
+  const container = []
+  let home = 0
+  let away = 0
+  let fHome = 0
+  let fAway = 0
+  for ( let i = 0; i < rounds; i++){
+    home = cb()
+    away = cb()
+    container.push(`${i+1}: Home: ${home}, Away: ${away}`)
+    fHome += home
+    fAway += away
+  }
+  container.push({"Final Home": fHome, "Final Away": fAway})
+  return container
 }
-
+//console.log("Scoreboard:", scoreboard(finalScore, inning, 9))
 
